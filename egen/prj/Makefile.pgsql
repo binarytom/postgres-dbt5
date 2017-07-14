@@ -18,7 +18,7 @@
 # Platform specific defines
 #CXX=
 CCFLAGS=-g -ggdb -D__STDC_FORMAT_MACROS -D__STDC_CONSTANT_MACROS
-LDFLAGS=-lpthread
+LDFLAGS=
 #AR=
 #ARFLAGS=
 
@@ -147,18 +147,18 @@ EGenLoader:			EGenUtilities \
 				$(EGenGenerateAndLoad_obj) \
 				$(EGenLoader_obj) \
 				$(LIBS) \
-				-o $(EXE)/$@; \
+				-o $(EXE)/$@ -lpthread; \
 	cd $(PRJ); \
 	ls -l $(EXE)
 
 EGenValidate:			EGenDriverLib \
 				$(EGenValidate_obj)
 	cd $(OBJ); \
-	$(CXX)  $(LDFLAGS) \
+	$(CXX)  \
 				$(EGenValidate_obj) \
 				$(LIB)/$(EGenDriverLib_lib) \
 				$(LIBS) \
-				-o $(EXE)/$@; \
+				-o $(EXE)/$@ -lpthread; \
 	cd $(PRJ); \
 	ls -al $(EXE)
 

@@ -18,7 +18,7 @@
 # Platform specific defines
 #CXX=
 #CCFLAGS=
-#LDFLAGS=
+LDFLAGS=-lpthread
 #AR=
 #ARFLAGS=
 

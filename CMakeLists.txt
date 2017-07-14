@@ -113,6 +113,11 @@ ADD_EXECUTABLE(${DBT5_BROKERAGE_HOUSE}
                ${TXN_SOURCE}
                ${BH}/BrokerageHouseMain.cpp
                ${BH}/BrokerageHouse.cpp)
+TARGET_LINK_LIBRARIES(
+    ${DBT5_BROKERAGE_HOUSE}
+    pthread
+    pq
+)
 
 ADD_EXECUTABLE(${DBT5_DRIVER}
                ${CE}/Driver.cpp
@@ -145,6 +150,10 @@ ADD_EXECUTABLE(${DBT5_DRIVER}
                ${INTF}/CSocket.cpp
                ${INTF}/DMSUT.cpp
                ${INTF}/BaseInterface.cpp)
+TARGET_LINK_LIBRARIES(
+    ${DBT5_DRIVER}
+    pthread
+)
 
 ADD_EXECUTABLE(${DBT5_MARKET_EXCHANGE}
                ${EGENSRC}/ReadRowFunctions.cpp
@@ -167,6 +176,10 @@ ADD_EXECUTABLE(${DBT5_MARKET_EXCHANGE}
                ${INTF}/BaseInterface.cpp
                ${ME}/MarketExchange.cpp
                ${ME}/MarketExchangeMain.cpp)
+TARGET_LINK_LIBRARIES(
+    ${DBT5_MARKET_EXCHANGE}
+    pthread
+)
 
 ADD_EXECUTABLE(${DBT5_TEST_TXN}
  ${EGENSRC}/ReadRowFunctions.cpp
@@ -200,6 +213,11 @@ ADD_EXECUTABLE(${DBT5_TEST_TXN}
                   ${INTF}/TxnHarnessSendToMarket.cpp
                   ${BH}/BrokerageHouse.cpp
                   src/TestTransactions/TestTxn.cpp)
+TARGET_LINK_LIBRARIES(
+    ${DBT5_TEST_TXN}
+    pthread
+    pq
+)
 
 #
 # Set compiler flags.
