@@ -15,6 +15,7 @@
 #include <netdb.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <errno.h>
@@ -39,7 +40,7 @@ public:
 
 	void setSocketFd(int sockfd) { m_sockfd = sockfd; }
 	int getSocketFd() { return m_sockfd; }
-	void closeListenerSocket() { close(m_listenfd); }
+	void closeListenerSocket() { ::close(m_listenfd); }
 
 private:
 	void throwError(CSocketErr::Action);
